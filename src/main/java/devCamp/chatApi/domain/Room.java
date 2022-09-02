@@ -29,6 +29,6 @@ public class Room {
     private String createUser;
 
     @OneToMany(mappedBy = "room")
-    private List<UserRoom> userRoomList = new ArrayList<>();
+    private List<UserRoom> roomList = new ArrayList<>();
 
 }
