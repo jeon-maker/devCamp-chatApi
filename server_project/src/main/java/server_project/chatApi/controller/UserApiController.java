@@ -1,11 +1,10 @@
-package devCamp.chatApi.controller;
+package server_project.chatApi.controller;
 
-import devCamp.chatApi.domain.Users;
-import devCamp.chatApi.service.UserService;
+import server_project.chatApi.domain.Users;
+import server_project.chatApi.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import org.apache.catalina.User;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +25,13 @@ public class UserApiController {
 
         Long id = userService.join(users);
         return new CreateUserResponse(id);
+
+    }
+    @PostMapping("/login")
+    public CreateUserResponse loginUser(@RequestBody @Validated Users request)
+    {
+        Users loginUser = userService.login(request);
+        return new CreateUserResponse(request.getId());
 
     }
 

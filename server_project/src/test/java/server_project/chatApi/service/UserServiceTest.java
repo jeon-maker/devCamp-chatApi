@@ -1,9 +1,7 @@
-package devCamp.chatApi.service;
+package server_project.chatApi.service;
 
 
-import devCamp.chatApi.domain.Users;
-import devCamp.chatApi.repository.JpaUserRepository;
-import org.junit.jupiter.api.Test;
+import server_project.chatApi.repository.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;

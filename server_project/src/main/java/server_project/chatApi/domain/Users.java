@@ -1,4 +1,4 @@
-package devCamp.chatApi.domain;
+package server_project.chatApi.domain;
 
 import lombok.Getter;
 import lombok.Setter;

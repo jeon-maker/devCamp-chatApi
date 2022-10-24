@@ -1,7 +1,7 @@
-package devCamp.chatApi.service;
+package server_project.chatApi.service;
 
-import devCamp.chatApi.domain.Users;
-import devCamp.chatApi.repository.JpaUserRepository;
+import server_project.chatApi.domain.Users;
+import server_project.chatApi.repository.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,5 +46,23 @@ public class UserService {
         return jpaUserRepository.findAll();
     }
 
+    /**
+     * 로그인 기능 구현
+     * */
+    public Users login(Users user){
+        Users findUser = jpaUserRepository.findByUserName(user.getUserName());
+        if(findUser == null){
+            throw new IllegalStateException("존재하지 않는 회원입니다.");
+        }
+        String password = user.getPassword();
+        String findUserPassword = findUser.getPassword();
+        if(password != findUserPassword){
+            throw new IllegalStateException("비밀번호가 틀립니다");
+        }
+        else{
+            System.out.println("로그인 성공!");
+            return user;
+        }
 
+    }
 }
